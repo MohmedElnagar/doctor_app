@@ -1,4 +1,5 @@
 import 'package:doctor_app/core/routing/app_router.dart';
+import 'package:doctor_app/core/routing/name_router.dart';
 import 'package:doctor_app/core/theme/colors.dart';
 import 'package:doctor_app/core/theme/style.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class GetStartedButtom extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 30.w),
       child: TextButton(
         onPressed: () {
-          GoRouter.of(context).push(AppRouter.login);
+          context.pushNamed(Routes.loginPage);
         },
         style: ButtonStyle(
             minimumSize:
