@@ -1,7 +1,7 @@
-import 'package:doctor_app/features/onbording/ui/sub_text.dart';
 import 'package:doctor_app/features/onbording/ui/widget/doc_logo_and_name.dart';
 import 'package:doctor_app/features/onbording/ui/widget/doctor_image_and_text.dart';
 import 'package:doctor_app/features/onbording/ui/widget/get_started_buttom.dart';
+import 'package:doctor_app/features/onbording/ui/widget/sub_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,7 +24,7 @@ class OnBordingPage extends StatelessWidget {
             const DoctorImageAndText(),
             const SubText(),
             SizedBox(
-              height: 40.h,
+              height: 50.h,
             ),
             const GetStartedButtom()
           ],

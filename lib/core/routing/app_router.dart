@@ -11,7 +11,7 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBordingPage());
       case Routes.loginPage:
         return MaterialPageRoute(builder: (_) => const LoginPage());
-      case Routes.onBoarding:
+      case Routes.homePage:
         return MaterialPageRoute(builder: (_) => const HomePage());
 
       default:
