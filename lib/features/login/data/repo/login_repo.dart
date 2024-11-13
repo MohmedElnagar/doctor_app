@@ -7,7 +7,8 @@ import 'package:doctor_app/features/login/data/models/login_response.dart';
 class LoginRepo {
   final ApiService _apiService;
 
-  LoginRepo({required ApiService apiService}) : _apiService = apiService;
+  LoginRepo(this._apiService);
+
   Future<ApiResult<LoginResponse>> login(ModelRequestBody model) async {
     try {
       final response = await _apiService.login(model);

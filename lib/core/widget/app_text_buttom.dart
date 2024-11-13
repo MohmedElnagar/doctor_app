@@ -28,14 +28,14 @@ class AppTextButtom extends StatelessWidget {
     return TextButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(EdgeInsets.symmetric(
+        padding: WidgetStateProperty.all(EdgeInsets.symmetric(
             vertical: verticalPadding?.h ?? 14.w,
             horizontal: horizontalPadding?.w ?? 12.h)),
-        backgroundColor: MaterialStateProperty.all(
-            backgroundcolor ?? ColorsManager.mainBlue),
-        fixedSize: MaterialStateProperty.all(
+        backgroundColor:
+            WidgetStateProperty.all(backgroundcolor ?? ColorsManager.mainBlue),
+        fixedSize: WidgetStateProperty.all(
             Size(buttomwidth?.w ?? double.maxFinite, buttomheight?.h ?? 50.h)),
-        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+        shape: WidgetStateProperty.all(RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius ?? 16))),
       ),
       child: Text(

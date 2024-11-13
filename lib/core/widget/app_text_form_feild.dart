@@ -16,6 +16,8 @@ class AppTxtFormField extends StatelessWidget {
     this.suffixIcon,
     this.fillColor,
     this.suffixIconColor,
+    this.controller,
+    required this.validator,
   });
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? enabledBorder;
@@ -27,9 +29,12 @@ class AppTxtFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? fillColor;
   final Color? suffixIconColor;
+  final TextEditingController? controller;
+  final Function(String?) validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       obscureText: isObscureText ?? false,
       style: inputTextStyle ?? TextStyles.font14DarkBlueMedium,
       decoration: InputDecoration(
@@ -52,7 +57,16 @@ class AppTxtFormField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 borderSide: const BorderSide(
                     width: 1.3, color: ColorsManager.mainBlue)),
+        focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(width: 1.3, color: Colors.red)),
+        errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: const BorderSide(width: 1.3, color: Colors.red)),
       ),
+      validator: (value) {
+        return validator(value);
+      },
     );
   }
 }
