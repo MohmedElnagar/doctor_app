@@ -1,3 +1,4 @@
+import 'package:doctor_app/features/login/ui/widget/login_page_body.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -5,8 +6,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Text('Login Page'),),
+    return const Scaffold(
+      body: SafeArea(child: LoginPageBody()),
     );
   }
 }
