@@ -21,7 +21,7 @@ class ApiErrors {
 
 // TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
-  NO_CONTENT,
+  No_Conten,
   BAD_REQUEST,
   FORBIDDEN,
   UNAUTORISED,
@@ -39,7 +39,7 @@ enum DataSource {
 
 class ResponseCode {
   static const int SUCCESS = 200; // success with data
-  static const int NO_CONTENT = 201; // success with no data (no content)
+  static const int No_Conten = 201; // success with no data (no content)
   static const int BAD_REQUEST = 400; // failure, API rejected request
   static const int UNAUTORISED = 401; // failure, user is not authorised
   static const int FORBIDDEN = 403; //  failure, API rejected request
@@ -58,7 +58,7 @@ class ResponseCode {
 }
 
 class ResponseMessage {
-  static const String NO_CONTENT =
+  static const String No_Conten =
       ApiErrors.noContent; // success with no data (no content)
   static const String BAD_REQUEST =
       ApiErrors.badRequestError; // failure, API rejected request
@@ -84,9 +84,9 @@ class ResponseMessage {
 extension DataSourceExtension on DataSource {
   ApiErrorModel getFailure() {
     switch (this) {
-      case DataSource.NO_CONTENT:
+      case DataSource.No_Conten:
         return ApiErrorModel(
-            code: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT);
+            code: ResponseCode.No_Conten, message: ResponseMessage.No_Conten);
       case DataSource.BAD_REQUEST:
         return ApiErrorModel(
             code: ResponseCode.BAD_REQUEST,

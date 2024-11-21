@@ -77,7 +77,9 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
               child: Icon(
                   isObscureText ? Icons.visibility_off : Icons.visibility)),
           validator: (value) {
-            if (value == null || value.isEmpty) {
+            if (value == null ||
+                value.isEmpty ||
+                !AppRegex.isPasswordValidated(value)) {
               return 'Please enter a valid password';
             }
           },

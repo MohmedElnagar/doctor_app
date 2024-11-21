@@ -49,7 +49,7 @@ class SignupBlocListener extends StatelessWidget {
           title: const Text('Signup Successful'),
           content: const SingleChildScrollView(
             child: ListBody(
-              children: <Widget>[
+              children: [
                 Text('Congratulations, you have signed up successfully!'),
               ],
             ),
