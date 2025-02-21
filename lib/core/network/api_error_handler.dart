@@ -1,27 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:doctor_app/core/network/api_error_model.dart';
 
-class ApiErrors {
-  static const String badRequestError = "badRequestError";
-  static const String noContent = "noContent";
-  static const String forbiddenError = "forbiddenError";
-  static const String unauthorizedError = "unauthorizedError";
-  static const String notFoundError = "notFoundError";
-  static const String conflictError = "conflictError";
-  static const String internalServerError = "internalServerError";
-  static const String unknownError = "unknownError";
-  static const String timeoutError = "timeoutError";
-  static const String defaultError = "defaultError";
-  static const String cacheError = "cacheError";
-  static const String noInternetError = "noInternetError";
-  static const String loadingMessage = "loading_message";
-  static const String retryAgainMessage = "retry_again_message";
-  static const String ok = "Ok";
-}
+import 'api_error_model.dart';
 
 // TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
-  No_Conten,
+  NO_CONTENT,
   BAD_REQUEST,
   FORBIDDEN,
   UNAUTORISED,
@@ -39,7 +22,7 @@ enum DataSource {
 
 class ResponseCode {
   static const int SUCCESS = 200; // success with data
-  static const int No_Conten = 201; // success with no data (no content)
+  static const int NO_CONTENT = 201; // success with no data (no content)
   static const int BAD_REQUEST = 400; // failure, API rejected request
   static const int UNAUTORISED = 401; // failure, user is not authorised
   static const int FORBIDDEN = 403; //  failure, API rejected request
@@ -58,7 +41,7 @@ class ResponseCode {
 }
 
 class ResponseMessage {
-  static const String No_Conten =
+  static const String NO_CONTENT =
       ApiErrors.noContent; // success with no data (no content)
   static const String BAD_REQUEST =
       ApiErrors.badRequestError; // failure, API rejected request
@@ -84,9 +67,9 @@ class ResponseMessage {
 extension DataSourceExtension on DataSource {
   ApiErrorModel getFailure() {
     switch (this) {
-      case DataSource.No_Conten:
+      case DataSource.NO_CONTENT:
         return ApiErrorModel(
-            code: ResponseCode.No_Conten, message: ResponseMessage.No_Conten);
+            code: ResponseCode.NO_CONTENT, message: ResponseMessage.NO_CONTENT);
       case DataSource.BAD_REQUEST:
         return ApiErrorModel(
             code: ResponseCode.BAD_REQUEST,
@@ -187,4 +170,22 @@ ApiErrorModel _handleError(DioException error) {
 class ApiInternalStatus {
   static const int SUCCESS = 0;
   static const int FAILURE = 1;
+}
+
+class ApiErrors {
+  static const String badRequestError = "badRequestError";
+  static const String noContent = "noContent";
+  static const String forbiddenError = "forbiddenError";
+  static const String unauthorizedError = "unauthorizedError";
+  static const String notFoundError = "notFoundError";
+  static const String conflictError = "conflictError";
+  static const String internalServerError = "internalServerError";
+  static const String unknownError = "unknownError";
+  static const String timeoutError = "timeoutError";
+  static const String defaultError = "defaultError";
+  static const String cacheError = "cacheError";
+  static const String noInternetError = "noInternetError";
+  static const String loadingMessage = "loading_message";
+  static const String retryAgainMessage = "retry_again_message";
+  static const String ok = "Ok";
 }

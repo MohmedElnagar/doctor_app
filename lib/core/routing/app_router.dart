@@ -1,6 +1,7 @@
 import 'package:doctor_app/core/di/dependincy_injection.dart';
 import 'package:doctor_app/core/routing/name_router.dart';
-import 'package:doctor_app/features/home/ui/home_page.dart';
+import 'package:doctor_app/features/home/logic/home_cubit.dart';
+import 'package:doctor_app/features/home/ui/home_screen.dart';
 import 'package:doctor_app/features/login/logic/cubit/login_cubit_cubit.dart';
 import 'package:doctor_app/features/login/ui/login_page.dart';
 import 'package:doctor_app/features/onbording/ui/onbording.dart';
@@ -10,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
-  Route generateRoute(RouteSettings setting) {
+  Route? generateRoute(RouteSettings setting) {
     switch (setting.name) {
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBordingPage());
@@ -21,7 +22,11 @@ class AppRouter {
                   child: const LoginPage(),
                 ));
       case Routes.homePage:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => HomeCubit(getIt())..getSpecializations(),
+                  child: const HomeScreen(),
+                ));
       case Routes.signup:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -31,12 +36,7 @@ class AppRouter {
         );
 
       default:
-        return MaterialPageRoute(
-            builder: (_) => Scaffold(
-                  body: Center(
-                    child: Text("No route defined for ${setting.name}"),
-                  ),
-                ));
+        return null;
     }
   }
 }
